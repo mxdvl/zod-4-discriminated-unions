@@ -3,7 +3,10 @@ import { useState } from "preact/hooks";
 import * as z from "zod/v4";
 
 const kitchenSchema = z.discriminatedUnion("utility", [
-  z.object({ utility: z.literal("none"), name: z.literal("None") }),
+  z.object({
+    utility: z.literal("none"),
+    name: z.literal("None"),
+  }),
   z.object({
     utility: z.literal("oven"),
     name: z.literal("Electric convection oven"),
