@@ -108,11 +108,23 @@ export function Kitchen() {
                   name="position"
                   value={position}
                   checked={cooking.position === position}
+                  onChange={({ currentTarget: { checked } }) =>
+                    checked && setCooking({ ...cooking, position })}
                 />
                 {position}
               </label>
             ))}{" "}
           </fieldset>
+          {cooking.position === "bottom" && (
+            <>The bottom tray is great for pies</>
+          )}
+          {cooking.position === "middle" && <>The middle tray is versatile</>}
+          {cooking.position === "top" && (
+            <>
+              The top tray is great for roasting
+              veggies{cooking.temperature < 200 && <>– with at least 200°C</>}
+            </>
+          )}
         </>
       )}
     </main>
